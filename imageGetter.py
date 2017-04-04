@@ -5,7 +5,7 @@ import urlparse
 
 url = "https://www.walmart.com/ip/54649026"
 
-def get_imageURLS(url):
+def get_imgsList(url):
     result = requests.get(url)
     soup = BeautifulSoup(result.text, "html.parser")
 
@@ -31,11 +31,11 @@ def get_imageURLS(url):
 #   print ''
 
 	# Return a list of image URLs
-    imgs = [] 
+    imgsList = [] 
     for img in soup.findAll("img", src=True):
         
-        imgs.append(urlparse.urljoin(url, img["src"]))
+        imgsList.append(urlparse.urljoin(url, img["src"]))
         
-    return imgs
+    return imgsList
     
-# print get_imageURLS(url)
+print get_imgsList(url)
