@@ -37,6 +37,13 @@ def get_thumbnails():
     
     return jsonify(error=xxx, message=statusMsg, thumbnails=links)
 
+
+@app.route('/thumbnails/view')
+def view_thumbnails():
+    """Renders an AngularJS webpage that displays the list of thumbnails retrieved"""
+    return render_template('thumbnails.html')
+
+
 ###
 # The functions below should be applicable to all Flask apps.
 ###
