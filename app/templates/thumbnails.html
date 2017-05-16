@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block main %}
+{% raw %}
+<h1 class="page-header">Thumbnails</h1>
+
+<div class="container" ng-app="AppMdlThumbnail" ng-controller="AppCtrlrThumbnail">
+    <div class="row">
+        <div class="col-xs-6 col-md-3" ng-repeat="thmbnl in dataObj.thumbnails track by $index">
+            <a ng-href="{{ thmbnl }}" class="thumbnail">
+                <img ng-src="{{ thmbnl }}" />
+            </a>
+        </div>
+    </div>
+</div>
+{% endraw %}
+{% endblock %}
+
+
+{% block js %}
+<script src="{{ url_for('static',filename='js/angular.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/app.js') }}"></script>
+<script src="{{ url_for('static',filename='js/thumbnails.js') }}"></script>
+{% endblock %}
